@@ -26,10 +26,6 @@ Every topic in this repository is learned through hands-on coding, experimentati
 * ✅ Seaborn
 * ✅ Classical Machine Learning
 * 🔄 PyTorch (In Progress)
-* ⬜ Computer Vision
-* ⬜ Natural Language Processing
-* ⬜ Transformers
-* ⬜ Large Language Models (LLMs)
 
 ---
 
