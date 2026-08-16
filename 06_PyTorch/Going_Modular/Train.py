@@ -1,6 +1,6 @@
 from timeit import default_timer as timer
 from tqdm.auto import tqdm
-from Training_Pipeline import training_pipeline
+from .Training_Pipeline import training_pipeline
 
 def train(model,
           train_dataloader,

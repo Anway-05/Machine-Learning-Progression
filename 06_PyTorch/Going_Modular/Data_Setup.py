@@ -8,10 +8,10 @@ def create_dataloaders(train_dir,
                        batch_size):
 
     train_data=datasets.ImageFolder(train_dir,
-                                    transforms=train_transform)
+                                    transform=train_transform)
     
     test_data=datasets.ImageFolder(test_dir,
-                                   transforms=test_transform)
+                                   transform=test_transform)
 
     train_dataloader=DataLoader(train_data,
                                 batch_size=batch_size,
