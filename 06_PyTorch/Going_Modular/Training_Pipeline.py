@@ -15,3 +15,4 @@ def training_pipeline(model,data_loader,loss_func,optimizer):
     training_accuracy/=len(data_loader)
     print(f"Training loss is {training_loss}")
     print(f"Training accuracy is {training_accuracy}")
+    return training_loss,training_accuracy
