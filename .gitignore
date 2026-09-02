@@ -6,3 +6,5 @@ venv/
 .env
 .DS_Store
 02_Pandas/survey_results_public.csv
+*.pth
+*.pt

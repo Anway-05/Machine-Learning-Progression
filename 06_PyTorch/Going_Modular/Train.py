@@ -11,7 +11,7 @@ def train(model,
           optimizer,
           loss_func,
           epochs,
-          writer):
+          writer=None):
 
     results={
         "training_loss":[],
@@ -22,10 +22,11 @@ def train(model,
     
     start_time=timer()
 
-    writer.add_graph(
-        model=model,
-        input_to_model=torch.randn(1,3,224,224)
-    )
+    if writer:
+        writer.add_graph(
+            model=model,
+            input_to_model=torch.randn(1,3,224,224)
+        )
 
     for epoch in tqdm(range(epochs)):
         print(f"-----Epoch {epoch+1}-----")
@@ -38,27 +39,29 @@ def train(model,
         results["test_loss"].append(test_results["model_loss"])
         results["test_accuracy"].append(test_results["model_acc"])
 
-        writer.add_scalars(
-            "Loss",
-            {
-                "train":training_loss,
-                "test":test_results["model_loss"]
-            },
-            epoch
-        )
-        writer.add_scalars(
-            "Accuracy",
-            {
-                "train":training_accuracy,
-                "test":test_results["model_acc"]
-            },
-            epoch
-        )
+        if writer:
+            writer.add_scalars(
+                "Loss",
+                {
+                    "train":training_loss,
+                    "test":test_results["model_loss"]
+                },
+                epoch
+            )
+            writer.add_scalars(
+                "Accuracy",
+                {
+                    "train":training_accuracy,
+                    "test":test_results["model_acc"]
+                },
+                epoch
+            )
 
     end_time=timer()
 
     print(f"Time taken for training is {end_time-start_time}.")
 
-    writer.close()
+    if writer:
+        writer.close()
 
     return results
